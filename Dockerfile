@@ -7,10 +7,11 @@ COPY go.sum ./
 
 RUN go mod download && go mod verify
 
-COPY . .
+# airをインストール
+RUN go install github.com/air-verse/air@latest
 
-RUN go build -v -o /usr/local/bin/main ./cmd/server
+COPY . .
 
 EXPOSE 8080
 
-CMD ["/usr/local/bin/main"]
+CMD ["air"]
