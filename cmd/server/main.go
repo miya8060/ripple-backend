@@ -15,7 +15,7 @@ func main() {
 	r.Use(cors.New(config))
 
 	// ルートハンドラー
-	r.GET("/", func(c *gin.Context) {
+	r.GET("/api/health", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "Welcome to the Ripple API",
 		})
