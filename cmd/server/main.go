@@ -1,26 +1,8 @@
 package main
 
-import (
-	"github.com/gin-contrib/cors"
-	"github.com/gin-gonic/gin"
-)
+import "github.com/miya8060/ripple-backend/internal/api"
 
 func main() {
-	r := gin.Default()
-
-	// CORSミドルウェアの設定
-	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"http://localhost:5173"}
-	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
-	r.Use(cors.New(config))
-
-	// ルートハンドラー
-	r.GET("/api/health", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "Welcome to the Ripple API",
-		})
-	})
-
-	// サーバーの起動
+	r := api.SetupRouter()
 	r.Run(":8080")
 }
