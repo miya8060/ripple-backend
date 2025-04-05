@@ -23,7 +23,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=crud_app
+      - POSTGRES_DB=test_db
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
