@@ -7,8 +7,14 @@ COPY go.sum ./
 
 RUN go mod download && go mod verify
 
-# airをインストール
+# air
 RUN go install github.com/air-verse/air@latest
+
+# sqlc
+RUN go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
+
+# golang-migrate
+RUN go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 
 COPY . .
 
